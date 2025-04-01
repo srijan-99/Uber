@@ -3,11 +3,12 @@ dotenv.config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
-
-const connectDb=require('./db/db')
 const cookieParser=require('cookie-parser')
 
+const connectDb=require('./db/db')
+
 const userRoutes=require('./routes/user.routes')
+const captainRoutes=require('./routes/captain.routes')
 const PORT=process.env.PORT || 8080;
 
 
@@ -18,8 +19,6 @@ const PORT=process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json()); // Middleware to parse JSON request body
 app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded data
-
-
 app.use(cookieParser());
 
 // Debugging middleware to log incoming requests
@@ -38,6 +37,7 @@ app.get('/', (req, res) => {
 
 // Ensure '/users' routes are correctly configured
 app.use('/users', userRoutes)
+app.use('/captains',captainRoutes)
 
 app.listen(PORT,()=>{
     console.log(`Server is listening on the ${PORT}`)
