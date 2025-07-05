@@ -15,6 +15,7 @@ import Home from './pages/Home'
 // import CaptainProtectWrapper from './Context/CaptainContext/CaptainProtectWrapper'
 import CaptainHome from './pages/CaptainHome'
 import Riding from './pages/Riding'
+import CaptainRiding from './pages/CaptainRiding'
 
 import UserProtectedWrapper from './pages/UserProtectedWrapper'
 import CaptainProtectWrapper from './pages/CaptainProtectWrapper'
@@ -49,6 +50,11 @@ const App = () => {
               <CaptainHome/>
             </CaptainProtectWrapper>
           } />
+          <Route path='/captain-riding' element={
+            <CaptainProtectWrapper>
+              <CaptainRiding/>
+            </CaptainProtectWrapper>
+          }/>
        
      
       </Routes>

@@ -9,6 +9,7 @@ const connectDb=require('./db/db')
 
 const userRoutes=require('./routes/user.routes')
 const captainRoutes=require('./routes/captain.routes')
+const mapRoutes=require('./routes/map.routes')
 const PORT=process.env.PORT || 8080;
 
 
@@ -38,6 +39,7 @@ app.get('/', (req, res) => {
 // Ensure '/users' routes are correctly configured
 app.use('/users', userRoutes)
 app.use('/captains',captainRoutes)
+app.use('/maps',mapRoutes)
 
 app.listen(PORT,()=>{
     console.log(`Server is listening on the ${PORT}`)
